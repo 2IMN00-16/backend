@@ -1,0 +1,196 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2017-01-03T16:40:10.551Z",
+	"__export_source": "insomnia.desktop.app:v4.0.12",
+	"resources": [
+		{
+			"_id": "wrk_ed7040533085455d8bbbf3e269a021f4",
+			"parentId": null,
+			"modified": 1483450183886,
+			"created": 1483439839336,
+			"name": "Seminar",
+			"description": "",
+			"certificates": [],
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_997183f91b414c57aa0adcfaa521ecd0",
+			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
+			"modified": 1483450183885,
+			"created": 1483439888083,
+			"name": "Base Environment",
+			"data": {},
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_2ea73580ca054f8ea648d32ee311d0b6",
+			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
+			"modified": 1483461544985,
+			"created": 1483439857254,
+			"name": "Default Jar",
+			"cookies": [],
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "req_0919b3bdb1a14beab50b72d648cd0372",
+			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
+			"modified": 1483450218580,
+			"created": 1483442408388,
+			"url": "http://localhost:1337/settings",
+			"name": "Get Settings",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": 450,
+			"_type": "request"
+		},
+		{
+			"_id": "req_5153e2f323cb48f78f9c83c084422b4c",
+			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
+			"modified": 1483455516217,
+			"created": 1483449805634,
+			"url": "http://localhost:1337/taskset/restart",
+			"name": "Set Taskset with restart",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "[\n\t{\n\t\t\"Name\": \"T1\",\n\t\t\"Priority\" : 3,\n\t\t\"Computation\": 20,\n\t\t\"Period\": 70,\n\t\t\"Deadline\": 50,\n\t\t\"Threshold\": 3,\n\t\t\"Color\": \"#330000\"\n\t},\n\t{\n\t\t\"Name\": \"T2\",\n\t\t\"Priority\" : 2,\n\t\t\"Computation\": 20,\n\t\t\"Period\": 80,\n\t\t\"Deadline\": 80,\n\t\t\"Threshold\": 2,\n\t\t\"Color\": \"#003300\"\n\t},\n\t{\n\t\t\"Name\": \"T3\",\n\t\t\"Priority\" : 1,\n\t\t\"Computation\": 35,\n\t\t\"Period\": 200,\n\t\t\"Deadline\": 100,\n\t\t\"Threshold\": 2,\n\t\t\"Color\": \"#000033\"\n\t}\n]"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": 400,
+			"_type": "request"
+		},
+		{
+			"_id": "req_6bb69af23f9c44e3bd0d39c6fe13ccf3",
+			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
+			"modified": 1483450183882,
+			"created": 1483442600749,
+			"url": "http://localhost:1337/ping ",
+			"name": "Ping",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": 100,
+			"_type": "request"
+		},
+		{
+			"_id": "req_7c6117fea0bc4ad38fef46eca29cb8e7",
+			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
+			"modified": 1483450183881,
+			"created": 1483442421299,
+			"url": "http://localhost:1337/taskset",
+			"name": "Get Taskset",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": 300,
+			"_type": "request"
+		},
+		{
+			"_id": "req_889669bb084e4eb1b521b532f1226f91",
+			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
+			"modified": 1483450183880,
+			"created": 1483439866537,
+			"url": "http://localhost:1337/settings",
+			"name": "Set Settings",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"speed\" : 14,\n\t\"Type\" : \"Preemtive\"\n}\n"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": 500,
+			"_type": "request"
+		},
+		{
+			"_id": "req_9a405d65d44f4ba5ae77d52bbcf803e0",
+			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
+			"modified": 1483455537363,
+			"created": 1483449847140,
+			"url": "http://localhost:1337/settings/restart",
+			"name": "Set Settings with restart",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"Speed\" : 14,\n\t\"Type\" : \"Preemtive\"\n}\n"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": 501,
+			"_type": "request"
+		},
+		{
+			"_id": "req_d03bddabe90c48d2b2475d5191ca56c3",
+			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
+			"modified": 1483450227489,
+			"created": 1483449141485,
+			"url": "http://localhost:1337/restart",
+			"name": "Restart visualizers",
+			"method": "PATCH",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": 551,
+			"_type": "request"
+		},
+		{
+			"_id": "req_d523b81e62784d1b98d25015b914d873",
+			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
+			"modified": 1483450222501,
+			"created": 1483442936416,
+			"url": "http://localhost:1337/taskset",
+			"name": "Set Taskset",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "[\n\t{\n\t\t\"Name\": \"T1\",\n\t\t\"Priority\" : 3,\n\t\t\"Computation\": 20,\n\t\t\"Period\": 70,\n\t\t\"Deadline\": 50,\n\t\t\"Threshold\": 3,\n\t\t\"Color\": \"#330000\"\n\t},\n\t{\n\t\t\"Name\": \"T2\",\n\t\t\"Priority\" : 2,\n\t\t\"Computation\": 20,\n\t\t\"Period\": 80,\n\t\t\"Deadline\": 80,\n\t\t\"Threshold\": 2,\n\t\t\"Color\": \"#003300\"\n\t},\n\t{\n\t\t\"Name\": \"T3\",\n\t\t\"Priority\" : 1,\n\t\t\"Computation\": 35,\n\t\t\"Period\": 200,\n\t\t\"Deadline\": 100,\n\t\t\"Threshold\": 2,\n\t\t\"Color\": \"#000033\"\n\t}\n]"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": 350,
+			"_type": "request"
+		}
+	]
+}
