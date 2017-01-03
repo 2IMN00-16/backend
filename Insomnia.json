@@ -37,7 +37,7 @@
 			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
 			"modified": 1483450218580,
 			"created": 1483442408388,
-			"url": "http://localhost:1337/settings",
+			"url": "https://seminar.tuupke.nl/settings",
 			"name": "Get Settings",
 			"method": "GET",
 			"body": {
@@ -54,7 +54,7 @@
 			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
 			"modified": 1483455516217,
 			"created": 1483449805634,
-			"url": "http://localhost:1337/taskset/restart",
+			"url": "https://seminar.tuupke.nl/taskset/restart",
 			"name": "Set Taskset with restart",
 			"method": "PUT",
 			"body": {
@@ -77,7 +77,7 @@
 			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
 			"modified": 1483450183882,
 			"created": 1483442600749,
-			"url": "http://localhost:1337/ping ",
+			"url": "https://seminar.tuupke.nl/ping ",
 			"name": "Ping",
 			"method": "GET",
 			"body": {
@@ -94,7 +94,7 @@
 			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
 			"modified": 1483450183881,
 			"created": 1483442421299,
-			"url": "http://localhost:1337/taskset",
+			"url": "https://seminar.tuupke.nl/taskset",
 			"name": "Get Taskset",
 			"method": "GET",
 			"body": {
@@ -111,7 +111,7 @@
 			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
 			"modified": 1483450183880,
 			"created": 1483439866537,
-			"url": "http://localhost:1337/settings",
+			"url": "https://seminar.tuupke.nl/settings",
 			"name": "Set Settings",
 			"method": "PUT",
 			"body": {
@@ -134,7 +134,7 @@
 			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
 			"modified": 1483455537363,
 			"created": 1483449847140,
-			"url": "http://localhost:1337/settings/restart",
+			"url": "https://seminar.tuupke.nl/settings/restart",
 			"name": "Set Settings with restart",
 			"method": "PUT",
 			"body": {
@@ -157,7 +157,7 @@
 			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
 			"modified": 1483450227489,
 			"created": 1483449141485,
-			"url": "http://localhost:1337/restart",
+			"url": "https://seminar.tuupke.nl/restart",
 			"name": "Restart visualizers",
 			"method": "PATCH",
 			"body": {
@@ -174,7 +174,7 @@
 			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
 			"modified": 1483450222501,
 			"created": 1483442936416,
-			"url": "http://localhost:1337/taskset",
+			"url": "https://seminar.tuupke.nl/taskset",
 			"name": "Set Taskset",
 			"method": "PUT",
 			"body": {
