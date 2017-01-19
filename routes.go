@@ -70,6 +70,11 @@ func GetTaskset(w http.ResponseWriter, _ *http.Request, _ httprouter.Params) {
     json.NewEncoder(w).Encode(taskSet)
 }
 
+func GetVisualSettings(w http.ResponseWriter, _ *http.Request, _ httprouter.Params) {
+    w.Header().Set("Content-Type", "application/json")
+    fmt.Fprintln(w, "[\"off\", \"Running\",\"Active\",\"Preempted\"]")
+}
+
 func SetTaskset(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
     var ts TaskSet
 

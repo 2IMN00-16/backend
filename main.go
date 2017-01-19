@@ -78,6 +78,7 @@ func main() {
     // Setting cruds, only retrieve and set allowed
     router.GET("/settings", GetSettings)
     router.PUT("/settings", SetSettings)
+    router.GET("/settings/visualizers", GetVisualSettings)
     router.PUT("/settings/restart", SetSettings)
 
     // Set a lamp to a value
