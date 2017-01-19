@@ -7,24 +7,55 @@ import (
     "log"
 )
 
-var taskSet = TaskSet{Task{"Test task", 0, 10, 100, 1000, 0, "#dddddd"}}
-var settings = Settings{100, "Non-Preemptive"}
+var taskSet TaskSet
+
+var settings Settings
 
 var TaskSetC (chan TaskSet)
 var ResetsC (chan bool)
+var COaPId (chan uint16)
+
+func seedValues(){
+    var t = Task{"Test task", 10, 10, 100, 1000, 0, "#013370"}
+    var ts = make([]Task, 1)
+    ts[0] = t
+
+    taskSet = TaskSet{ts, "Default"}
+    settings = Settings{100, "Non-Preemptive"}
+
+}
+
+var lampC (chan LampAction)
 
 func main() {
+
+    seedValues()
+    lampC = initLamp()
+
     // Seed the visualizers
     var vs = Visualizer{}
 
-    hv := HueVisual{}
-    gv := GraspVisual{}
+    vs.Visual(&HueVisual{})
+    vs.Visual(&GraspVisual{})
 
-    vs.Visual(&hv)
-    vs.Visual(&gv)
     TaskSetC, ResetsC = vs.Init()
 
     TaskSetC <- taskSet
+
+    // COaP identifier generation
+    COaPId = make(chan uint16)
+
+    go func() {
+        var messageId uint16 = 1
+        for {
+            COaPId <- messageId
+            messageId++
+        }
+    }()
+
+    br := Broadcaster{}
+
+    br.GetBroadcast()
 
     router := httprouter.New()
 
@@ -41,7 +72,21 @@ func main() {
     router.PUT("/settings", SetSettings)
     router.PUT("/settings/restart", SetSettings)
 
+    // Set a lamp to a value
+    router.POST("/command", SetLamp)
+
+    // Restart the visualisation
     router.PATCH("/restart", ForceRestart)
+
+    // Get the running lamp amount
+    router.GET("/lamps", LampAmount)
+
+    // Get the running lamp amount
+    router.POST("/lamps/identify/:dur", LampsIdentify)
+
+    router.GET("/schedulers", Schedulers)
+    router.POST("/schedulers", SetSchedulers)
+
 
     fmt.Println("Server about to start running")
     log.Fatal(http.ListenAndServe(":1337", router))

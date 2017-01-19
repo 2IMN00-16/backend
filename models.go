@@ -10,9 +10,22 @@ type Task struct {
     Color       string
 }
 
-type TaskSet []Task
+type TaskSet struct {
+    Tasks     []Task
+    Name      string
+}
 
 type Settings struct {
     Speed int
     Type  string
+}
+
+type LampAction struct {
+    Lamp  string
+    Color string
+}
+
+type Visualize struct {
+    Scheduler string
+
 }

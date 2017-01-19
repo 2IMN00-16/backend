@@ -13,11 +13,18 @@ func (v *Visualizer) Init() (chan TaskSet, chan bool) {
         for {
             select {
             case newValue := <-c:
-                var signalReset = v.taskSet == nil
+
+                var signalReset = &v.taskSet == nil
+
+                //if c.taskSet == nil {
+                //    signalReset = true
+                //}
+
+                //signalReset = (v.taskSet == nil)
                 v.taskSet = newValue
 
                 for _, vs := range v.visuals {
-                    vs.Visualize(newValue)
+                    //vs.Visualize(newValue)
 
                     if signalReset {
                         vs.Restart()
@@ -47,5 +54,5 @@ func (v *Visualizer) Visual(vs Visual) {
 
 type Visual interface {
     Restart()
-    Visualize(TaskSet)
+    EventChannel (chan Event)
 }
