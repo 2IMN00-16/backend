@@ -1,15 +1,15 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2017-01-03T12:10:28.159Z",
-	"__export_source": "insomnia.desktop.app:v4.0.12",
+	"__export_date": "2017-01-19T08:57:40.368Z",
+	"__export_source": "insomnia.desktop.app:v4.0.13",
 	"resources": [
 		{
 			"_id": "wrk_ed7040533085455d8bbbf3e269a021f4",
 			"parentId": null,
-			"modified": 1483439839336,
+			"modified": 1483615151896,
 			"created": 1483439839336,
-			"name": "Insomnia",
+			"name": "Seminar",
 			"description": "",
 			"certificates": [],
 			"_type": "workspace"
@@ -17,7 +17,7 @@
 		{
 			"_id": "env_997183f91b414c57aa0adcfaa521ecd0",
 			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
-			"modified": 1483439888083,
+			"modified": 1483615151895,
 			"created": 1483439888083,
 			"name": "Base Environment",
 			"data": {},
@@ -26,35 +26,48 @@
 		{
 			"_id": "jar_2ea73580ca054f8ea648d32ee311d0b6",
 			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
-			"modified": 1483445417255,
+			"modified": 1484816237253,
 			"created": 1483439857254,
 			"name": "Default Jar",
 			"cookies": [],
 			"_type": "cookie_jar"
 		},
 		{
-			"_id": "req_0919b3bdb1a14beab50b72d648cd0372",
+			"_id": "fld_255b32f489cd4da29381baff01e4b375",
 			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
-			"modified": 1483445194590,
-			"created": 1483442408388,
-			"url": "http://localhost:1337/settings",
-			"name": "Get Settings",
-			"method": "GET",
-			"body": {
-				"text": ""
-			},
-			"parameters": [],
-			"headers": [],
-			"authentication": {},
-			"metaSortKey": -1483439866536,
-			"_type": "request"
+			"modified": 1484816145555,
+			"created": 1484816145555,
+			"name": "Lamp",
+			"environment": {},
+			"metaSortKey": -1484816145555,
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_95d4e0f666ea48948b72cdc148c0130d",
+			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
+			"modified": 1484816125827,
+			"created": 1484816125827,
+			"name": "Taskset",
+			"environment": {},
+			"metaSortKey": -1484816125827,
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_e4559cbd5a054b81b86e44476dedb0a1",
+			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
+			"modified": 1484816135415,
+			"created": 1484816135415,
+			"name": "Settings",
+			"environment": {},
+			"metaSortKey": -1484816135415,
+			"_type": "request_group"
 		},
 		{
 			"_id": "req_6bb69af23f9c44e3bd0d39c6fe13ccf3",
 			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
-			"modified": 1483445177229,
+			"modified": 1484816037241,
 			"created": 1483442600749,
-			"url": "http://localhost:1337/ping ",
+			"url": "https://seminar.tuupke.nl/ping ",
 			"name": "Ping",
 			"method": "GET",
 			"body": {
@@ -63,13 +76,133 @@
 			"parameters": [],
 			"headers": [],
 			"authentication": {},
-			"metaSortKey": -1483442600749,
+			"metaSortKey": 100,
+			"_type": "request"
+		},
+		{
+			"_id": "req_d03bddabe90c48d2b2475d5191ca56c3",
+			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
+			"modified": 1483615151882,
+			"created": 1483449141485,
+			"url": "https://seminar.tuupke.nl/restart",
+			"name": "Restart visualizers",
+			"method": "PATCH",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": 551,
+			"_type": "request"
+		},
+		{
+			"_id": "req_162f94e2478b43e9a541ff81d7cb8913",
+			"parentId": "fld_255b32f489cd4da29381baff01e4b375",
+			"modified": 1484816194855,
+			"created": 1484248583716,
+			"url": "https://seminar.tuupke.nl/command",
+			"name": "Give L1 color",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"Lamp\" : \"lamp3\",\n\t\"Color\" : \"#000000\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1484248403137,
+			"_type": "request"
+		},
+		{
+			"_id": "req_365f2ef1e98c44c48ab6ff1f14b87abd",
+			"parentId": "fld_255b32f489cd4da29381baff01e4b375",
+			"modified": 1484816205594,
+			"created": 1483615170848,
+			"url": "http://localhost:1337/lamps",
+			"name": "Get lamp names",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484248403087,
+			"_type": "request"
+		},
+		{
+			"_id": "req_ce470b599d4e42b39b22d9d6b4e586ab",
+			"parentId": "fld_255b32f489cd4da29381baff01e4b375",
+			"modified": 1484816159559,
+			"created": 1484248403187,
+			"url": "https://seminar.tuupke.nl/command ",
+			"name": "Turn L1 on",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"Lamp\" : \"lamp3\",\n\t\"Color\" : \"#000000\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1484248403187,
+			"_type": "request"
+		},
+		{
+			"_id": "req_e6d2890d2dec4a7d8c1fe1e7601a8f02",
+			"parentId": "fld_255b32f489cd4da29381baff01e4b375",
+			"modified": 1484816211136,
+			"created": 1484253182024,
+			"url": "https://seminar.tuupke.nl/lamps/identify/15",
+			"name": "Identify lamps",
+			"method": "POST",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484248403037,
+			"_type": "request"
+		},
+		{
+			"_id": "req_5153e2f323cb48f78f9c83c084422b4c",
+			"parentId": "fld_95d4e0f666ea48948b72cdc148c0130d",
+			"modified": 1484816186880,
+			"created": 1483449805634,
+			"url": "https://seminar.tuupke.nl/taskset/restart",
+			"name": "Set Taskset with restart",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "[\n\t{\n\t\t\"Name\": \"T1\",\n\t\t\"Priority\" : 3,\n\t\t\"Computation\": 20,\n\t\t\"Period\": 70,\n\t\t\"Deadline\": 50,\n\t\t\"Threshold\": 3,\n\t\t\"Color\": \"#330000\"\n\t},\n\t{\n\t\t\"Name\": \"T2\",\n\t\t\"Priority\" : 2,\n\t\t\"Computation\": 20,\n\t\t\"Period\": 80,\n\t\t\"Deadline\": 80,\n\t\t\"Threshold\": 2,\n\t\t\"Color\": \"#003300\"\n\t},\n\t{\n\t\t\"Name\": \"T3\",\n\t\t\"Priority\" : 1,\n\t\t\"Computation\": 35,\n\t\t\"Period\": 200,\n\t\t\"Deadline\": 100,\n\t\t\"Threshold\": 2,\n\t\t\"Color\": \"#000033\"\n\t}\n]"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": 400,
 			"_type": "request"
 		},
 		{
 			"_id": "req_7c6117fea0bc4ad38fef46eca29cb8e7",
-			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
-			"modified": 1483445186135,
+			"parentId": "fld_95d4e0f666ea48948b72cdc148c0130d",
+			"modified": 1484816164814,
 			"created": 1483442421299,
 			"url": "http://localhost:1337/taskset",
 			"name": "Get Taskset",
@@ -80,15 +213,55 @@
 			"parameters": [],
 			"headers": [],
 			"authentication": {},
-			"metaSortKey": -1483442351262,
+			"metaSortKey": 300,
+			"_type": "request"
+		},
+		{
+			"_id": "req_d523b81e62784d1b98d25015b914d873",
+			"parentId": "fld_95d4e0f666ea48948b72cdc148c0130d",
+			"modified": 1484816166454,
+			"created": 1483442936416,
+			"url": "http://localhost:1337/taskset",
+			"name": "Set Taskset",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"Tasks\": [\n\t\t{\n\t\t\t\"Name\": \"Test\",\n\t\t\t\"Priority\": 10,\n\t\t\t\"Computation\": 10,\n\t\t\t\"Period\": 100,\n\t\t\t\"Deadline\": 1000,\n\t\t\t\"Threshold\": 0,\n\t\t\t\"Color\": \"#013370\"\n\t\t}\n\t],\n\t\"Name\": \"Default\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": 350,
+			"_type": "request"
+		},
+		{
+			"_id": "req_0919b3bdb1a14beab50b72d648cd0372",
+			"parentId": "fld_e4559cbd5a054b81b86e44476dedb0a1",
+			"modified": 1484816177139,
+			"created": 1483442408388,
+			"url": "https://seminar.tuupke.nl/settings",
+			"name": "Get Settings",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": 450,
 			"_type": "request"
 		},
 		{
 			"_id": "req_889669bb084e4eb1b521b532f1226f91",
-			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
-			"modified": 1483445406231,
+			"parentId": "fld_e4559cbd5a054b81b86e44476dedb0a1",
+			"modified": 1484816170997,
 			"created": 1483439866537,
-			"url": "http://localhost:1337/settings",
+			"url": "https://seminar.tuupke.nl/settings",
 			"name": "Set Settings",
 			"method": "PUT",
 			"body": {
@@ -103,20 +276,20 @@
 				}
 			],
 			"authentication": {},
-			"metaSortKey": -1483439866537,
+			"metaSortKey": 500,
 			"_type": "request"
 		},
 		{
-			"_id": "req_d523b81e62784d1b98d25015b914d873",
-			"parentId": "wrk_ed7040533085455d8bbbf3e269a021f4",
-			"modified": 1483445182055,
-			"created": 1483442936416,
-			"url": "http://localhost:1337/taskset",
-			"name": "Set Taskset",
+			"_id": "req_9a405d65d44f4ba5ae77d52bbcf803e0",
+			"parentId": "fld_e4559cbd5a054b81b86e44476dedb0a1",
+			"modified": 1484816172856,
+			"created": 1483449847140,
+			"url": "https://seminar.tuupke.nl/settings/restart",
+			"name": "Set Settings with restart",
 			"method": "PUT",
 			"body": {
 				"mimeType": "application/json",
-				"text": "[\n\t{\n\t\t\"Name\": \"T1\",\n\t\t\"Priority\" : 3,\n\t\t\"Computation\": 20,\n\t\t\"Period\": 70,\n\t\t\"Deadline\": 50,\n\t\t\"Threshold\": 3,\n\t\t\"Color\": \"#330000\"\n\t},\n\t{\n\t\t\"Name\": \"T2\",\n\t\t\"Priority\" : 2,\n\t\t\"Computation\": 20,\n\t\t\"Period\": 80,\n\t\t\"Deadline\": 80,\n\t\t\"Threshold\": 2,\n\t\t\"Color\": \"#003300\"\n\t},\n\t{\n\t\t\"Name\": \"T3\",\n\t\t\"Priority\" : 1,\n\t\t\"Computation\": 35,\n\t\t\"Period\": 200,\n\t\t\"Deadline\": 100,\n\t\t\"Threshold\": 2,\n\t\t\"Color\": \"#000033\"\n\t}\n]"
+				"text": "{\n\t\"Speed\" : 14,\n\t\"Type\" : \"Preemtive\"\n}\n"
 			},
 			"parameters": [],
 			"headers": [
@@ -126,7 +299,7 @@
 				}
 			],
 			"authentication": {},
-			"metaSortKey": -1483442351262,
+			"metaSortKey": 550,
 			"_type": "request"
 		}
 	]
