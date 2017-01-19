@@ -11,13 +11,8 @@ type Task struct {
 }
 
 type TaskSet struct {
-    Tasks     []Task
-    Name      string
-}
-
-type Settings struct {
-    Speed int
-    Type  string
+    Tasks []Task
+    Name  string
 }
 
 type LampAction struct {
@@ -26,6 +21,13 @@ type LampAction struct {
 }
 
 type Visualize struct {
-    Scheduler string
+    CycleRate  int
+    TimeFactor int
+    Scheduler  string
+    Lights     []LampDef
+}
 
+type LampDef struct {
+    Name  string
+    Value string
 }

@@ -22,7 +22,7 @@ func GetSettings(w http.ResponseWriter, _ *http.Request, _ httprouter.Params) {
 }
 
 func SetSettings(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-    var s Settings
+    var s Visualize
     body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
     if err != nil {
         panic(err)
@@ -40,13 +40,13 @@ func SetSettings(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
         }
     }
 
-    old := settings.Type
+    old := settings.Scheduler
     settings = s
 
     // Make sure we always have a custom type set
-    switch s.Type {
+    switch s.Scheduler {
     default:
-        settings.Type = old
+        settings.Scheduler = old
         break
     case "Non-Preemptive":
     case "Preemtive":
@@ -260,11 +260,12 @@ func LampsIdentify(w http.ResponseWriter, r *http.Request, p httprouter.Params) 
 
 func Schedulers(w http.ResponseWriter, r *http.Request, _ httprouter.Params){
     w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-    fmt.Fprintln(w, "[\"FPPS\",\"FPTS\",\"FPNS\"]")
+    fmt.Fprintln(w, "[\"Non-Preemptive\",\"Preemtive\",\"Threshold\"]")
 }
+
 func SetSchedulers(w http.ResponseWriter, r *http.Request, _ httprouter.Params){
     w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-    fmt.Fprintln(w, "[\"FPPS\",\"FPTS\",\"FPNS\"]")
+    fmt.Fprintln(w, "[\"Non-Preemptive\",\"Preemtive\",\"Threshold\"]")
 }
 
 func SetLamp(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {

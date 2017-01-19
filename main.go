@@ -9,7 +9,7 @@ import (
 
 var taskSet TaskSet
 
-var settings Settings
+var settings Visualize
 
 var TaskSetC (chan TaskSet)
 var ResetsC (chan bool)
@@ -21,7 +21,15 @@ func seedValues(){
     ts[0] = t
 
     taskSet = TaskSet{ts, "Default"}
-    settings = Settings{100, "Non-Preemptive"}
+    //settings = Settings{100, "Non-Preemptive"}
+
+    settings = Visualize{1000, 50, "Preemtive", []LampDef{
+        {"lamp1", "free"},
+        {"lamp2", "free"},
+        {"lamp3", "free"},
+    }}
+
+    fmt.Println(settings)
 
 }
 
@@ -86,6 +94,9 @@ func main() {
 
     router.GET("/schedulers", Schedulers)
     router.POST("/schedulers", SetSchedulers)
+
+    //router.GET("/visualizers", GetVisualizers)
+    //router.GET("")
 
 
     fmt.Println("Server about to start running")
