@@ -43,8 +43,8 @@ func SetSettings(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
     old := settings.Type
     settings = s
 
+    // Make sure we always have a custom type set
     switch s.Type {
-
     default:
         settings.Type = old
         break
