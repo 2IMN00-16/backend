@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2017-01-19T08:57:40.368Z",
+	"__export_date": "2017-01-19T09:02:15.574Z",
 	"__export_source": "insomnia.desktop.app:v4.0.13",
 	"resources": [
 		{
@@ -122,9 +122,9 @@
 		{
 			"_id": "req_365f2ef1e98c44c48ab6ff1f14b87abd",
 			"parentId": "fld_255b32f489cd4da29381baff01e4b375",
-			"modified": 1484816205594,
+			"modified": 1484816505431,
 			"created": 1483615170848,
-			"url": "http://localhost:1337/lamps",
+			"url": "https://seminar.tuupke.nl/lamps",
 			"name": "Get lamp names",
 			"method": "GET",
 			"body": {
@@ -179,7 +179,7 @@
 		{
 			"_id": "req_5153e2f323cb48f78f9c83c084422b4c",
 			"parentId": "fld_95d4e0f666ea48948b72cdc148c0130d",
-			"modified": 1484816186880,
+			"modified": 1484816527067,
 			"created": 1483449805634,
 			"url": "https://seminar.tuupke.nl/taskset/restart",
 			"name": "Set Taskset with restart",
@@ -202,9 +202,9 @@
 		{
 			"_id": "req_7c6117fea0bc4ad38fef46eca29cb8e7",
 			"parentId": "fld_95d4e0f666ea48948b72cdc148c0130d",
-			"modified": 1484816164814,
+			"modified": 1484816515970,
 			"created": 1483442421299,
-			"url": "http://localhost:1337/taskset",
+			"url": "https://seminar.tuupke.nl/taskset",
 			"name": "Get Taskset",
 			"method": "GET",
 			"body": {
@@ -219,9 +219,9 @@
 		{
 			"_id": "req_d523b81e62784d1b98d25015b914d873",
 			"parentId": "fld_95d4e0f666ea48948b72cdc148c0130d",
-			"modified": 1484816166454,
+			"modified": 1484816519901,
 			"created": 1483442936416,
-			"url": "http://localhost:1337/taskset",
+			"url": "https://seminar.tuupke.nl/taskset",
 			"name": "Set Taskset",
 			"method": "PUT",
 			"body": {
