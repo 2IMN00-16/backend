@@ -115,6 +115,8 @@ func main() {
     // Get the running lamp amount
     router.POST("/lamps/identify/:dur", LampsIdentify)
 
+    router.GET("/grasp", GetGraspScript)
+
     router.GET("/schedulers", Schedulers)
     //router.POST("/schedulers", SetSchedulers)
 

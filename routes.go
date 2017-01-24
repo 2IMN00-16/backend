@@ -64,13 +64,13 @@ func SetSettings(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
         // \"off\", \"Running\",\"Active\",\"Preempted\
         case "Running":
             rs.Lamps = append(rs.Lamps, q.Name)
-            break;
+            break
         case "Active":
             as.Lamps = append(as.Lamps, q.Name)
-            break;
+            break
         case "Preempted":
             ps.Lamps = append(ps.Lamps, q.Name)
-            break;
+            break
         }
     }
 
@@ -439,6 +439,10 @@ func showLamps() chan CyclerSettings {
 
                         break
                     case "jobCompleted":
+                        go func() {
+                            removeActive <- e
+                            removePreemted <- e
+                        }()
 
                         running = nil
 
@@ -630,6 +634,7 @@ func LampsIdentify(w http.ResponseWriter, r *http.Request, p httprouter.Params) 
 
     go func() {
         <-timer2.C
+
         for i := 0; i < len(matches); i++ {
             color := pal1[i].Hex()
             fmt.Fprintf(w, "\"%s\" : \"%s\"", matches[i], color)
@@ -637,6 +642,7 @@ func LampsIdentify(w http.ResponseWriter, r *http.Request, p httprouter.Params) 
             if i < len(matches)-1 {
                 fmt.Fprint(w, ",")
             }
+            fmt.Println("Hierrr")
 
             lampC <- LampAction{
                 matches[i],
@@ -794,6 +800,7 @@ func runScheduler(set ScheduleTransimitter) VisEvents {
 
     // Call the scheduler
     cmd := exec.Command("/usr/local/bin/python", "scheduler.py")
+    //cmd := exec.Command("/usr/bin/java", "-jar Scheduler.jar")
     err = cmd.Start()
     if err != nil {
         panic(err)
@@ -818,4 +825,18 @@ func runScheduler(set ScheduleTransimitter) VisEvents {
     }
 
     return v.Schedule
+}
+
+func GetGraspScript(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+    vis, err := ioutil.ReadFile("schedule.grasp")
+
+    if err != nil {
+        w.WriteHeader(http.StatusExpectationFailed)
+        return
+    }
+
+    w.Header().Add("Content-Type","text/plain")
+    w.Header().Add("Content-Disposition","attachment; filename=\"schedule.grasp\"")
+
+    fmt.Fprintf(w, "%s", vis)
 }
